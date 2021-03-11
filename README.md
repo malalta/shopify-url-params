@@ -1,7 +1,7 @@
-<header style="text-align: center;">
+<div align="center">
 <img src="https://cdn.shopify.com/shopifycloud/brochure/assets/brand-assets/shopify-logo-primary-logo-456baa801ee66a0a435671082365958316831c9960c480451dd0330bcdae304f.svg"
      alt="Shopify logo"
-     style="max-width:75%;" />
+     width="350" />
 
 # Undocumented Shopify URL Parameters
 
@@ -13,7 +13,7 @@ This is a list of useful, mostly undocumented, URL parameters used by Shopify.
 PRs welcome, or simply let us know in the issues ✌️
 
 ----
-</header>
+</div>
 
 ## Themes
 
@@ -43,7 +43,16 @@ my-site.com/any-url/?customer_posted=true
 
 ## App development
 
-* `shop_id` (to do)
+### Get the shopOrigin without cookies: `?shop=`
+
+```
+api.your-app.com/?hmac=[...]&shop=client-store.myshopify.com
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+```
+
+* When migrating your app away from using third party cookies, it can be
+  non-obvious where to get the shopOrigin from after the OAuth handshake.
+* The shop name can be read from the `?shop=` query parameter.
 
 ## Store admin
 
